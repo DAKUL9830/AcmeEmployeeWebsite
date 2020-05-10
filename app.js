@@ -77,7 +77,7 @@ const fetchAndRender = () => {
     console.log(window.location.hash)
     const pageNumber = window.location.hash.slice(1) || '0';
     fetch(
-      `https://acme-users-api-rev.herokuapp.com/api/users/${pageNumber-1}`
+      `https://acme-users-api-rev.herokuapp.com/api/users/${Math.max(pageNumber-1,0)}`
     )
       .then((response) => {
         return response.json();
